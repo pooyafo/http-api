@@ -2,9 +2,9 @@ pipeline {
     agent any
     
     environment {
-        SERVERLESS_ACCESS_KEY = credentials('SERVERLESS_ACCESS_TOKEN') // Serverless auth token
-        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID') // Reference to stored AWS Access Key
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY') // Reference to stored AWS Secret Key
+        SERVERLESS_ACCESS_KEY = credentials('SERVERLESS_ACCESS_TOKEN')
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
 
     stages {
@@ -18,6 +18,7 @@ pipeline {
             steps {
                 echo 'Check required dependencies'
                 bat 'npm install aws-sdk'
+                bat 'npm install jest supertest --save-dev'
             }
         }
 
