@@ -3,7 +3,6 @@ const AWS = require("aws-sdk");
 
 module.exports.createCustomer = async (event) => {
   try {
-    // Log the DynamoDB table name to ensure it's correct
     console.log("DynamoDB Table:", process.env.DYNAMODB_CUSTOMER_TABLE);
 
     const body = JSON.parse(Buffer.from(event.body, "base64").toString());

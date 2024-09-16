@@ -3,7 +3,6 @@ const AWS = require("aws-sdk");
 
 module.exports.getCustomers = async (event) => {
   try {
-    // Log the DynamoDB table name to ensure it's correct
     console.log("DynamoDB Table:", process.env.DYNAMODB_CUSTOMER_TABLE);
 
     const scanParams = {
