@@ -7,7 +7,6 @@ pipeline {
                 echo 'Check required dependencies'
                 bat 'npm -v'
                 bat 'node -v'
-                bat 'npm install -g serverless'
             }
         }
 
@@ -20,6 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy to AWS CloudFormation by serverless'
+                bat 'npm install -g serverless'
                 bat 'serverless deploy'
             }
         }
