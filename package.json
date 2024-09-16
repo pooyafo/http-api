@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "aws-sdk": "^2.1691.0",
     "mocha": "^10.7.3",
@@ -6,6 +7,6 @@
     "chai-http": "^5.0.0"
   },
   "scripts": {
-    "test": "mocha --config api.test.js"
+    "test": "mocha --loader ts-node/esm"
   }
 }
