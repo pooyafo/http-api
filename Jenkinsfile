@@ -5,9 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Check required dependencies'
-                bat 'npm install -g serverless'  // Install serverless globally
-                bat 'npm -v'
-                bat 'node -v'
+                bat 'npm install aws-sdk'
             }
         }
 
