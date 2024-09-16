@@ -27,7 +27,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploy to AWS CloudFormation by serverless'
+                echo 'Login to Serverless Framework'
+                // Simulate serverless login by passing the token
+                bat 'echo {\"users\":{\"<user_id>\":{\"dashboard\":{\"accessToken\":\"%SERVERLESS_ACCESS_TOKEN%\"}}}} > %USERPROFILE%\\.serverlessrc'
+                
+                echo 'Deploy to AWS using Serverless'
                 bat 'serverless deploy'
             }
         }
