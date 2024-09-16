@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        SERVERLESS_ACCESS_TOKEN = credentials('SERVERLESS_ACCESS_TOKEN') // Serverless auth token
+        SERVERLESS_ACCESS_KEY = credentials('SERVERLESS_ACCESS_TOKEN') // Serverless auth token
     }
 
     stages {
