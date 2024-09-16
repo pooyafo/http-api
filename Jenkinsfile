@@ -26,10 +26,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                echo 'Login to Serverless Framework'
-                bat 'export SERVERLESS_ACCESS_KEY = %SERVERLESS_ACCESS_TOKEN%'
-                
+            steps {               
                 echo 'Deploy to AWS using Serverless'
                 bat 'serverless deploy'
             }
