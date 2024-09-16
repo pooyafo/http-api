@@ -17,15 +17,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Check required dependencies'
-                bat 'npm install aws-sdk'
-                bat 'npm install jest supertest --save-dev'
+                bat 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Stage 2: Unit and Integration Tests'
-            }
+                echo 'Testing with Mocha...'
+                bat 'npm test'
+                }
         }
 
         stage('Deploy') {
