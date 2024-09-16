@@ -18,7 +18,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Stage 3: Code Analysis - In this stage, the code is analyzed for quality, maintainability, and adherence to industry standards.'
+                echo 'Deploy to AWS CloudFormation by serverless'
+                bat 'serverless deploy'
             }
         }
 
