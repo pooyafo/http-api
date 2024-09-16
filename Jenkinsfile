@@ -7,6 +7,7 @@ pipeline {
                 echo 'Check required dependencies'
                 bat 'npm -v'
                 bat 'node -v'
+                bat 'npm install -g serverless'
             }
         }
 
