@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Install npm dependencies'
-                bat 'npm install'
+                echo 'Check required dependencies'
+                bat 'npm -v'
+                bat 'node -v'
             }
         }
 
