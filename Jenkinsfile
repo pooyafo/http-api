@@ -28,8 +28,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Login to Serverless Framework'
-                // Simulate serverless login by passing the token
-                bat 'echo {\"users\":{\"<user_id>\":{\"dashboard\":{\"accessToken\":\"%SERVERLESS_ACCESS_TOKEN%\"}}}} > %USERPROFILE%\\.serverlessrc'
+                bat 'export SERVERLESS_ACCESS_KEY = %SERVERLESS_ACCESS_TOKEN%'
                 
                 echo 'Deploy to AWS using Serverless'
                 bat 'serverless deploy'
