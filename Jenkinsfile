@@ -30,8 +30,9 @@ pipeline {
         stage('Code Quality Analysis') {
             steps {
                 echo 'Running SonarQube analysis'
+                def scannerHome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                 withSonarQubeEnv('SonarQubeServer') {
-                    bat "${tool 'SonarQubeScanner'}/bin/sonar-scanner -Dsonar.projectKey=http-api -Dsonar.sources=./src -Dsonar.host.url=http://localhost:9000"
+                    bat "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
