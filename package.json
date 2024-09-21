@@ -1,7 +1,6 @@
 {
   "name": "http-api",
   "version": "1.0.0",
-  "type": "module",
   "dependencies": {
     "aws-sdk": "^2.1691.0",
     "chai": "^5.1.1",

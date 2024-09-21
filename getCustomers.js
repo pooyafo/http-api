@@ -1,6 +1,5 @@
 "use strict";
-// const AWS = require("aws-sdk");
-import AWS from "aws-sdk";
+const AWS = require("aws-sdk");
 
 module.exports.getCustomers = async (event) => {
   try {
