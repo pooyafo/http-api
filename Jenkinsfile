@@ -30,7 +30,8 @@ pipeline {
         stage('Code Quality Analysis') {
             steps {
                 echo 'Running SonarQube analysis'
-                withSonarQubeEnv(installationName: 'SonarQubeServer') {
+                def scannerHome = tool 'SonarScannerServer';
+                withSonarQubeEnv() {
                     bat "${scannerHome}/bin/sonar-scanner"
                 }
             }
