@@ -36,16 +36,17 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Staging') {
             steps {               
-                echo 'Deploy to AWS using Serverless'
+                echo 'Deploy to Staging'
                 bat 'serverless deploy'
             }
         }
 
         stage('Release') {
             steps {
-                echo 'Stage 4: Deploy to Production'
+                echo 'Deploy to Production'
+                bat 'serverless deploy'
             }
         }
     }
