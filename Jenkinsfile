@@ -23,9 +23,19 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Testing with Mocha...'
-                bat 'npm test'
+                bat 'npm run test'
                 }
+        }
+        
+        stage('Code Quality Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                    withSonarQubeEnv('SonarQubeServer') {
+                      bat "${scannerHome}/bin/sonar-scanner"
+                    }   
+                }
+            }
         }
 
         stage('Deploy') {
