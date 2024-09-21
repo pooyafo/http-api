@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'Running SonarQube analysis'
                 withSonarQubeEnv('SonarQubeServer') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    bat "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
