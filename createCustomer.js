@@ -1,5 +1,6 @@
 "use strict";
-const AWS = require("aws-sdk");
+// const AWS = require("aws-sdk");
+import AWS from "aws-sdk";
 
 module.exports.createCustomer = async (event) => {
   try {
