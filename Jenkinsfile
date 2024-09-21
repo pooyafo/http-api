@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'Running SonarQube analysis'
                 withSonarQubeEnv('SonarQubeServer') {
-                    bat "${tool 'SonarQubeScanner'}/bin/sonar-scanner -Dsonar.projectKey=http-api -Dsonar.sources=./src -Dsonar.host.url=http://localhost:9000"
+                    bat "${tool 'SonarQubeScanner'}/bin/sonar-scanner -Dsonar.projectKey=http-api -Dsonar.sources=./ -Dsonar.host.url=http://localhost:9000"
                 }
             }
         }
