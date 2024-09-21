@@ -60,16 +60,20 @@ pipeline {
         }
 
         success {
+            script {
+                writeFile file: 'console-log.txt', text: currentBuild.rawBuild.getLog(300).join('\n')
+            }
             emailext (
-                subject: "'HTTP API Pipeline: ${currentBuild.currentResult}",
-                body: "Pipeline completed Successfully! Get customers list from: 'https://2oo4cepod3.execute-api.ap-southeast-2.amazonaws.com/'",
+                subject: "HTTP API Pipeline: ${currentBuild.currentResult}",
+                body: "Pipeline completed Successfully! \n Get customers list from: 'https://2oo4cepod3.execute-api.ap-southeast-2.amazonaws.com/'",
+                attachmentsPattern: 'console-log.txt',
                 to: "${env.Email_Address}"
             )
         }
 
         failure {
             script {
-                writeFile file: 'console-log.txt', text: currentBuild.rawBuild.getLog(100).join('\n')
+                writeFile file: 'console-log.txt', text: currentBuild.rawBuild.getLog(300).join('\n')
             }
             emailext (
                 subject: "HTTP API Pipeline: ${currentBuild.currentResult}",
