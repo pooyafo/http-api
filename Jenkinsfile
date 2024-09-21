@@ -63,7 +63,7 @@ pipeline {
             emailext (
                 subject: "'HTTP API Pipeline: ${currentBuild.currentResult}",
                 body: "Pipeline completed Successfully! Get customers list from: 'https://2oo4cepod3.execute-api.ap-southeast-2.amazonaws.com/'",
-                to: "${env.EMAIL_RECIPIENT}"
+                to: "${env.Email_Address}"
             )
         }
 
@@ -75,7 +75,7 @@ pipeline {
                 subject: "HTTP API Pipeline: ${currentBuild.currentResult}",
                 body: "Pipeline Failed! Check the attached log file.",
                 attachmentsPattern: 'console-log.txt',
-                to: "${env.EMAIL_RECIPIENT}"
+                to: "${env.Email_Address}"
             )
         }
     }
