@@ -1,7 +1,7 @@
 "use strict";
 
 const AWS = require("aws-sdk");
-const { createCustomer } = require("../createCustomer"); // Update with actual path
+const { createCustomer } = require("../createCustomer");
 
 jest.mock("aws-sdk", () => {
   const DocumentClient = {
